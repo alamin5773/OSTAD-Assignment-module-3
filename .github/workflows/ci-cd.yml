@@ -62,4 +62,4 @@ jobs:
     
           pm2 delete node-app -s -ErrorAction SilentlyContinue
           pm2 start "./src/server.js" --name node-app
-          pm2 save
+          pm2 save.

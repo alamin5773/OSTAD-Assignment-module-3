@@ -44,3 +44,11 @@ npm start
    ```
 
 2. **Default Port**: By Default this application will run on port 3000
+
+
+#Challenges and Outcome
+I faced issues running PM2 on a Windows self-hosted runner:
+The pm2 command wasn’t recognized even after installing it globally, due to PATH and environment variable issues.
+PM2 failed to start its daemon with permission errors (EPERM) and missing environment variables like HOME or HOMEPATH.
+Attempts to fix environment variables and permissions didn’t resolve the errors.
+Result: I couldn’t find a stable solution to run PM2 successfully in this Windows environment
