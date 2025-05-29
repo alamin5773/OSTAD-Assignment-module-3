@@ -49,8 +49,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Start the app
+      - name: Install pm2 globally
+        shell: powershell
         run: |
+          npm install -g pm2
+
+      - name: Start app using pm2
+        shell: powershell
+        run: |
+          $npmGlobalPrefix = npm config get prefix
+          $env:PATH = "$npmGlobalPrefix;$npmGlobalPrefix\node_modules\pm2\bin;" + $env:PATH
+    
           pm2 delete node-app -s -ErrorAction SilentlyContinue
           pm2 start "./src/server.js" --name node-app
           pm2 save
